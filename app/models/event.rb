@@ -3,5 +3,5 @@ class Event < ApplicationRecord
     has_many :volunteers, through: :signups
 
     validates :name, :when, :location, presence: true
-    validates :location, length: {minimum: 10}
+    validates :location, length: {minimum: 4}
 end
