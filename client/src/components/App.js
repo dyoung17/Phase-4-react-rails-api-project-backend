@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import EventsContainer from "./EventsContainer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login setUser={setUser} />
+            </Route>
+            <Route path="/events">
+              <EventsContainer />
             </Route>
             <Route path="/">
               <Home />

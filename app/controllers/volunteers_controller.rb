@@ -2,10 +2,10 @@ class VolunteersController < ApplicationController
     
 
     def create
-        volunteer = Volunteer.create!(volunteer_params)
+        volunteer = Volunteer.create(volunteer_params)
         if volunteer.valid?
          session[:volunteer_id] = volunteer.id
-        render json: volunteer, status: :create
+        render json: volunteer, status: :created
        else
         render json: {errors: volunteer.errors.full_messages}, status: :unprocessable_entity
         

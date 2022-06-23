@@ -22,7 +22,7 @@ function Login({ setUser }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
+        <h3>Login</h3>
         <label htmlFor="username">Username</label>
         <input
           type="text"
