@@ -17,8 +17,45 @@ code {
     "Lucida Sans", Arial, sans-serif;
   font-size: 45px;
   padding-left: 30px;
-  padding-right: 0px;
+  padding-right: 250px;
+  padding-top: 2px;
+  float: left;
+  margin-top: 2px;
 }
 
 .signup-form-container {
+  width: 10%;
+  padding-left: 8%;
+  padding-right: 20%;
+  margin: auto;
+  text-align: left;
+  background-color: #9dba94;
+  border-radius: 12px;
+  padding-bottom: 2%;
+  padding-top: 8px;
+  margin-top: 10px;
+}
+
+.eventdetails {
+  border: 7px solid rgba(61, 70, 59, 0.7);
+  border-radius: 20px;
+  display: inline-grid;
+  width: 20rem;
+
+  padding: 20px;
+  margin: 20px;
+}
+
+.navbar {
+  padding-top: 15px;
+}
+
+.homepage {
+  padding: 25px;
+  margin: 100px;
+  margin-left: 430px;
+  width: 600px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -20,7 +20,7 @@ function Login({ setUser }) {
   }
 
   return (
-    <div>
+    <div className="signup-form-container">
       <form onSubmit={handleSubmit}>
         <h3>Login</h3>
         <label htmlFor="username">Username</label>

@@ -25,6 +25,10 @@ event1 = Event.create(name: "Highway Cleanup", when: "22 June 2022", location: "
 event2 = Event.create(name: "Feed Homeless", when: "23 June 2022", location: "Downtown")
 event3 = Event.create(name: "Direct Traffic", when: "24 June 2022", location: "Mile High Stadium")
 event4 = Event.create(name: "Chaperone Field Trip", when: "25 June 2022", location: "Denver Zoo")
+event5 = Event.create(name: "Take Care of Animals", when: "26 June 2022", location: "Denver Animal Shelter")
+event6 = Event.create(name: "Keep Denver Beautiful", when: "30 June 2022", location: "City Park")
+event7 = Event.create(name: "Keep Denver Beautiful", when: "1 July 2022", location: "City Park")
+event8 = Event.create(name: "Keep Denver Beautiful", when: "7 July 2022", location: "City Park")
 
 signup1 = Signup.create(event_id: event1.id, volunteer_id: volunteer1.id)
 signup2 = Signup.create(event_id: event1.id, volunteer_id: volunteer2.id)

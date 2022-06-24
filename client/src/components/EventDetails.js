@@ -1,25 +1,34 @@
 import React from "react";
+function EventDetails({ event, volunteer }) {
+  //const [eventId, setEventId] = useState("");
+  //const [volunteerId, setVolunteerId] =useState("");
 
-function EventDetails({ event }) {
+  function addSignupEvent() {
+    console.log("addSignupEvent called");
+  }
+
   function handleVolSignUp() {
-    console.log("clicked");
-
+    const signupData = {
+      event_id: event.id,
+      volunteer_id: volunteer.id,
+    };
     fetch("/signups", {
       method: "POST",
-      headers: "Content-Type: application/json",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // event,
-        // volunteer
+        signup: signupData,
       }),
-    });
+    })
+      .then((r) => r.json())
+      .then((data) => addSignupEvent(data));
   }
 
   return (
-    <div>
+    <div className="eventdetails">
       <h2>{event.name}</h2>
-      <h5>{event.date}</h5>
-      <h6>{event.location}</h6>
-      <button onClick={handleVolSignUp}>Volunteer!</button>
+      <h5>Date: {event.date}</h5>
+      <h6>Location: {event.location}</h6>
+      {volunteer ? <button onClick={handleVolSignUp}>Volunteer!</button> : null}
     </div>
   );
 }

@@ -2,7 +2,8 @@ class SignupsController < ApplicationController
 
 
     def create
-        signup = Signup.create!(signup_params)
+        signup = Signup.create(signup_params)
+        byebug
         render json: signup
     end
 

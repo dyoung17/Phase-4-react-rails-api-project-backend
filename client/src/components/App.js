@@ -25,7 +25,7 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/">
-              <Home user={user} />
+              <Home />
             </Route>
           </Switch>
         ) : (
@@ -36,14 +36,16 @@ function App() {
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
-            <Route path="/events">
-              <EventsContainer />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
           </Switch>
         )}
+        <Switch>
+          <Route path="/events">
+            <EventsContainer user={user} setUser={setUser} />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </main>
     </>
   );

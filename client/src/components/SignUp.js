@@ -3,11 +3,11 @@ import React, { useState } from "react";
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [age, setAge] = useState(16);
+  const [phone_number, setPhoneNumber] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
@@ -19,6 +19,11 @@ function SignUp({ setUser }) {
       },
       body: JSON.stringify({
         username,
+        first_name,
+        last_name,
+        email,
+        age,
+        phone_number,
         password,
         password_confirmation: passwordConfirmation,
       }),
@@ -47,14 +52,14 @@ function SignUp({ setUser }) {
         <input
           type="text"
           id="firstName"
-          value={firstName}
+          value={first_name}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <label htmlFor="lastName">Last Name</label>
         <input
           type="text"
           id="lastName"
-          value={lastName}
+          value={last_name}
           onChange={(e) => setLastName(e.target.value)}
         />
         <label htmlFor="email">Email Address</label>
@@ -68,7 +73,7 @@ function SignUp({ setUser }) {
         <input
           type="text"
           id="phoneNumber"
-          value={phoneNumber}
+          value={phone_number}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <label htmlFor="age">Age - Must be 16 yrs of age or older</label>

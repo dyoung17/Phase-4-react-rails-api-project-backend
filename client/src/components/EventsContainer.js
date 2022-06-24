@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EventDetails from "./EventDetails";
 
-function EventsContainer() {
+function EventsContainer({ user }) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function EventsContainer() {
   return (
     <div>
       {events.map((event) => {
-        return <EventDetails key={event.id} event={event} />;
+        return <EventDetails key={event.id} event={event} volunteer={user} />;
       })}
     </div>
   );

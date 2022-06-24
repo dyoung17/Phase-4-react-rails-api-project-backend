@@ -1,5 +1,8 @@
 class VolunteersController < ApplicationController
     
+    def index
+        render json: Volunteer.all
+    end
 
     def create
         volunteer = Volunteer.create(volunteer_params)
