@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-resources :signups, only: [:create, :destroy]
+  resources :signups, only: [:create, :destroy, :index]
   resources :events, only: [:index, :show]
   resources :volunteers, only: [:create, :update, :show, :index]
   get '/me', to: 'volunteers#show'

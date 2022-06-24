@@ -1,9 +1,13 @@
 class SignupsController < ApplicationController
 
 
+    def index
+render json: Signup.all
+    end
+
     def create
-        signup = Signup.create(signup_params)
-        byebug
+        volunteer = Volunteer.find(session[:volunteer_id])
+        signup = volunteer.signups.create!(signup_params)
         render json: signup
     end
 
@@ -16,6 +20,6 @@ class SignupsController < ApplicationController
     private
 
     def signup_params
-        params.permit(:volunteer_id, :event_id)
+        params.permit(:event_id)
     end
 end

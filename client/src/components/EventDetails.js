@@ -10,17 +10,15 @@ function EventDetails({ event, volunteer }) {
   function handleVolSignUp() {
     const signupData = {
       event_id: event.id,
-      volunteer_id: volunteer.id,
     };
     fetch("/signups", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        signup: signupData,
-      }),
+      body: JSON.stringify(signupData),
     })
       .then((r) => r.json())
-      .then((data) => addSignupEvent(data));
+      .then((data) => console.log(data));
+    console.log(`fetch console log ${event.id}, ${volunteer.id}`);
   }
 
   return (
@@ -29,6 +27,8 @@ function EventDetails({ event, volunteer }) {
       <h5>Date: {event.date}</h5>
       <h6>Location: {event.location}</h6>
       {volunteer ? <button onClick={handleVolSignUp}>Volunteer!</button> : null}
+      <button>⭐Going to this event!</button>
+      <button>❌Resign From Event</button>
     </div>
   );
 }
