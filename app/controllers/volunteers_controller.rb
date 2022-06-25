@@ -24,8 +24,7 @@ class VolunteersController < ApplicationController
     def show 
         volunteerevents = Volunteer.find_by(id: session[:volunteer_id])
         # volunteerevents = Volunteer.find(params[:id])
-        render json: volunteerevents
-        # , serializer: VolunteerWithEventsSerializer
+        render json: volunteerevents, serializer: VolunteerWithEventsSerializer
     end
 
     private 

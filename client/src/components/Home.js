@@ -1,14 +1,41 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 
-function Home() {
+import VolunteerEvents from "./VolunteerEvents" 
+
+function Home({ volunteer }) {
+   const [volunteerEvents, setVolunteerEvents] = useState([]);
+
+   useEffect(() => {
+    if (volunteer?.id) {
+      fetch(`/volunteers/${volunteer.id}`)
+      .then(r => r.json())
+       .then(volunteer => setVolunteerEvents(volunteer.events));
+    };  
+   }, [volunteer?.id])
+
+   console.log('voluenteer evets', volunteerEvents)
+    
   return (
-    <div className="homepage">
-      VolunteerNetwork helps connect the community with many ways and areas are
-      available for individuals and groups to volunteer - and with your help,
-      these partnerships assist in keeping our community beautiful and safe for
-      immediate and future enjoyment.
+    <div>
+      {volunteerEvents.map((event) => {
+        return <VolunteerEvents event={event} key={event.id} />;
+       })};
     </div>
   );
 }
+
+// if(volunteer) {
+//   return (
+//     <div>
+//       <h2>Hello, {volunteer.first_name}!</h2>
+//       {volunteer ? <h3>EventList:</h3> : <h3>No Events Added</h3> }
+//       {renderEvents()}
+//     </div>
+//   );
+// } else {
+//   return null;
+// }
+// }
+
 
 export default Home;

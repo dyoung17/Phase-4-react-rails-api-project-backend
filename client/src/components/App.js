@@ -16,16 +16,22 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, []);
+  }, []);  
 
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
+        <Switch>         
+          <Route exact path="/">
+            <Home volunteer={user}/>
+          </Route>
+        </Switch>
+        
         {user ? (
           <Switch>
-            <Route path="/">
-              <Home />
+            <Route path="/events">
+              <EventsContainer user={user} setUser={setUser} />
             </Route>
           </Switch>
         ) : (
@@ -38,14 +44,7 @@ function App() {
             </Route>
           </Switch>
         )}
-        <Switch>
-          <Route path="/events">
-            <EventsContainer user={user} setUser={setUser} />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+       
       </main>
     </>
   );

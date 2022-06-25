@@ -25,11 +25,11 @@ function NavBar({ user, setUser }) {
   return (
     <div className="navbar">
       <h1 className="main-header">Volunteer Network</h1>
-      <div class="nav-links">
+      <div className="nav-links">
         <NavLink
           to="/"
           exact
-          class="nav-item"
+          className="nav-item"
           style={linkStyles}
           activeStyle={{
             background: "lightblue",
@@ -40,7 +40,7 @@ function NavBar({ user, setUser }) {
         <NavLink
           to="/events"
           exact
-          class="nav-item"
+          className="nav-item"
           style={linkStyles}
           activeStyle={{
             background: "lightblue",
@@ -52,7 +52,7 @@ function NavBar({ user, setUser }) {
         {user ? (
           <button
             style={linkStyles}
-            class="nav-item"
+            className="nav-item"
             activeStyle={{
               background: "lightblue",
             }}
@@ -64,7 +64,7 @@ function NavBar({ user, setUser }) {
           <>
             <NavLink
               to="/signup"
-              class="nav-item"
+              className="nav-item"
               style={linkStyles}
               activeStyle={{
                 background: "lightblue",
@@ -74,7 +74,7 @@ function NavBar({ user, setUser }) {
             </NavLink>
             <NavLink
               to="/login"
-              class="nav-item"
+              className="nav-item"
               style={linkStyles}
               activeStyle={{
                 background: "lightblue",
