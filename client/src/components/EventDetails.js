@@ -1,11 +1,12 @@
-import React from "react";
-function EventDetails({ event, volunteer }) {
+import React, { useEffect, useState }from "react";
+function EventDetails({ event, volunteer, onEventDelete }) {
   //const [eventId, setEventId] = useState("");
   //const [volunteerId, setVolunteerId] =useState("");
+ 
 
-  function addSignupEvent() {
-    console.log("addSignupEvent called");
-  }
+  // function addSignupEvent() {
+  //   console.log("addSignupEvent called");
+  // }
 
   function handleVolSignUp() {
     const signupData = {
@@ -21,6 +22,13 @@ function EventDetails({ event, volunteer }) {
     console.log(`fetch console log ${event.id}, ${volunteer.id}`);
   }
 
+  function handleDeleteClick() {
+    fetch(`events${event.id}`, {
+      method: "DELETE",
+    });
+    onEventDelete(event.id);
+  }
+
   return (
     <div className="eventdetails">
       <h2>{event.name}</h2>
@@ -28,8 +36,10 @@ function EventDetails({ event, volunteer }) {
       <h6>Location: {event.location}</h6>
       {volunteer ? <button onClick={handleVolSignUp}>Volunteer!</button> : null}
       <button>⭐Going to this event!</button>
-      <button>❌Resign From Event</button>
+      <button onClick={handleDeleteClick} >❌Delete this Event</button>
     </div>
+      
+      
   );
 }
 
