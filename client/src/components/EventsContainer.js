@@ -11,6 +11,17 @@ function EventsContainer({ user }) {
       .then((r) => r.json())
       .then(setEvents);
   }, []);
+
+  function handleUpdateEvent(updatedEvent) {
+    const updatedEvents = events.map((event) => {
+      if (event.id === updatedEvent.id) {
+        return updatedEvent;
+      } else {
+        return event;
+      }
+    });
+    setEvents(updatedEvents);
+  }
   
   function onEventDelete(id) {
     const updatedEvents = events.filter((event) => event.id !== id);
@@ -25,13 +36,10 @@ function EventsContainer({ user }) {
     <div>
       {<EventForm handleAddEvent={handleAddEvent} />}
       {events.map((event) => {
-        return <EventDetails key={event.id} event={event} volunteer={user} onEventDelete={onEventDelete} />
+        return <EventDetails key={event.id} event={event} volunteer={user} onEventDelete={onEventDelete} handleUpdateEvent={handleUpdateEvent} />
       })}
       
     </div>
-    // <div>
-    //     <EventForm handleAddEvent={handleAddEvent} />
-    // </div>
   );
 }
 

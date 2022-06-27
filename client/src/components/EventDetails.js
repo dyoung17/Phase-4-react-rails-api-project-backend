@@ -1,8 +1,11 @@
 import React, { useEffect, useState }from "react";
-function EventDetails({ event, volunteer, onEventDelete }) {
+import EditEvent from "./EditEvent";
+
+function EventDetails({ event, volunteer, onEventDelete, handleUpdateEvent }) {
   //const [eventId, setEventId] = useState("");
   //const [volunteerId, setVolunteerId] =useState("");
- 
+  const [isEditing, setIsEditing] = useState(false);
+
 
   // function addSignupEvent() {
   //   console.log("addSignupEvent called");
@@ -35,10 +38,18 @@ function EventDetails({ event, volunteer, onEventDelete }) {
       <h5>Date: {event.date}</h5>
       <h6>Location: {event.location}</h6>
       {volunteer ? <button onClick={handleVolSignUp}>Volunteer!</button> : null}
-      <button>⭐Going to this event!</button>
+      <button onClick={() => setIsEditing((isEditing) => !isEditing)}>⭐Edit</button>
       <button onClick={handleDeleteClick} >❌Delete this Event</button>
+      {isEditing ? (
+        
+        <EditEvent event={event} handleUpdateEvent={handleUpdateEvent}/>
+         ) : (
+        <p></p>
+      )}
     </div>
-      
+ 
+
+
       
   );
 }
